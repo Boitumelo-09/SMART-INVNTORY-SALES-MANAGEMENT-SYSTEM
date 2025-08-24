@@ -5,4 +5,4 @@ int main() {
     std::cout<<horizontalPadding() << "hello world";
     pressToContinue();
     return 0;
-    }
+    } 

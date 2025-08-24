@@ -22,13 +22,13 @@ public:
     void setProductName(std::string newName);
     void setProductCategory(std::string newCategory);
     void setPrice(double newPrice);
-    void setQuantity(int neeQuantity);
+    void setQuantity(int newQuantity);
 
-    int getProductID();
-    std::string getProductName();
-    std::string getProductCategory();
-    double getProductPrice();
-    int getQuantity();
+    int getProductID() const;
+    std::string getProductName() const;
+    std::string getProductCategory() const;
+    double getProductPrice() const;
+    int getQuantity() const;
 
 
 };

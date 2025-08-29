@@ -1,5 +1,5 @@
 #pragma once
-#include <string>;
+#include <string>
 
 
 #ifndef PRODUCT_H
@@ -15,7 +15,7 @@ private:
     int stockQuantity;
 
 public:
-    Product();
+    
     Product(int id, std::string name, std::string category, double price, int quantity);
 
     void setProductID(int newId);
@@ -29,8 +29,6 @@ public:
     std::string getProductCategory() const;
     double getProductPrice() const;
     int getQuantity() const;
-
-
 };
 
 #endif

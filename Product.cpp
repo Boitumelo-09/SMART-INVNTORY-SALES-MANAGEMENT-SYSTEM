@@ -1,6 +1,5 @@
 #include "Product.h"
 
-Product::Product() = default;
 Product::Product(int id, std::string name, std::string category, double price, int quantity): productID(id) , productName(name),productCategory(category),productPrice(price),stockQuantity(quantity){}
 
 void Product::setProductID(int newId) { newId = productID;}
@@ -14,3 +13,4 @@ std::string Product::getProductName() const { return productName; }
 std::string Product::getProductCategory() const { return productCategory; }
 double Product::getProductPrice() const { return productPrice; }
 int Product::getQuantity() const { return stockQuantity; }
+

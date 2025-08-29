@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-Customer::Customer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress){}
+Customer::Customer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress): customerID(customerID) , customerName(customerName) , customerEmail(customerEmail) , deliveryAddress(deliveryAddress){}
 
 int Customer::getCustomerId() const { return customerID; }
 std::string Customer::getCustomerName() const { return customerName; }

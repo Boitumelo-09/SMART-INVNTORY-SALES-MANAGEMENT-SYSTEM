@@ -26,6 +26,11 @@ void Order::displayOrder() const{
 	newLine();
 	for ( auto &product : itemsInCart)
 	{
-
+		product.displayProduct();
 	}
+	std::cout << " Total Price : " << getTotalAmount();
+	newLine();
+	newLine();
+	pressToContinue();
+	return;
 }

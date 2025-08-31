@@ -20,6 +20,14 @@ double Product::getProductPrice() const { return productPrice; }
 int Product::getQuantity() const { return stockQuantity; }
 
 void Product::displayProduct() const {
-	std::cout << horizontalPadding();
-
+	std::cout << horizontalPadding()<<"PRODUCT ID       : "<<getProductID();
+	newLine();
+	std::cout << horizontalPadding()<<"PRODUCT NAME     : "<<getProductName();
+	newLine();
+	std::cout << horizontalPadding()<<"PRODUCT CATEGORY : "<<getProductCategory();
+	newLine();
+	std::cout << horizontalPadding()<<"PRODUCT PRICE    : "<<getProductPrice();
+	newLine();
+	std::cout << horizontalPadding() << std::string(50, '*');
+	return;
 }

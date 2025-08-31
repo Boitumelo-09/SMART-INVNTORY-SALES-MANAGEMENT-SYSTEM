@@ -28,8 +28,9 @@ void Order::displayOrder() const{
 	{
 		product.displayProduct();
 	}
-	std::cout << " Total Price : " << getTotalAmount();
+	std::cout << " Total Price  : " << getTotalAmount();
 	newLine();
+	std::cout << " Order Status : " << getOrderStatus();
 	newLine();
 	pressToContinue();
 	return;

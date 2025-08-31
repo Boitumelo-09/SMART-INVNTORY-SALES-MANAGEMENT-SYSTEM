@@ -7,7 +7,7 @@
 
 class Product
 {
-private:
+
     int productID;
     std::string productName;
     std::string productCategory;

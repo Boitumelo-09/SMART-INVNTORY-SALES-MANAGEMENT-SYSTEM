@@ -3,7 +3,6 @@
 
 class Customer
 {
-private : 
 	int customerID;
 	std::string customerName;
 	std::string customerEmail;
@@ -19,8 +18,6 @@ public:
     void setCustomerName(const std::string& newName);
     void setCustomerEmail(const std::string& newEmail);
     void setCustomerAddress(const std::string& newAddress);
-
-    
     void displayCustomer() const;
 };
 

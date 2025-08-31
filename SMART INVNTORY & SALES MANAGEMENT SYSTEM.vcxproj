@@ -127,12 +127,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="Product.cpp" />
+    <ClCompile Include="ProductManager.cpp" />
     <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Customer.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Product.h" />
+    <ClInclude Include="ProductManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="utility.h" />
   </ItemGroup>

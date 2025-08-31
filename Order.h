@@ -6,7 +6,7 @@
 #include "Customer.h"
 
 class Order {
-private:
+
     int orderId;                 
     Customer customer;           
     std::vector<Product> itemsInCart;

@@ -23,7 +23,7 @@ public:
     void setProductCategory(std::string newCategory);
     void setPrice(double newPrice);
     void setQuantity(int newQuantity);
-
+    void displayProduct() const;
     int getProductID() const;
     std::string getProductName() const;
     std::string getProductCategory() const;

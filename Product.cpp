@@ -1,4 +1,9 @@
+#include "utility.h"
 #include "Product.h"
+#include "string"
+#include <iostream>
+
+
 
 Product::Product(int id, std::string name, std::string category, double price, int quantity): productID(id) , productName(name),productCategory(category),productPrice(price),stockQuantity(quantity){}
 
@@ -14,3 +19,7 @@ std::string Product::getProductCategory() const { return productCategory; }
 double Product::getProductPrice() const { return productPrice; }
 int Product::getQuantity() const { return stockQuantity; }
 
+void Product::displayProduct() const {
+	std::cout << horizontalPadding();
+
+}

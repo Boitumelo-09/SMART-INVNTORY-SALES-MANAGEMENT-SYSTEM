@@ -2,6 +2,8 @@
 #include "CustomerManager.h"
 #include <string>
 #include <iostream>
+#include <cctype>
+#include <limits>
 
 const std::vector<Customer> CustomerManager::getCustomers() { return customers; }
 void CustomerManager::searchCustomer(){

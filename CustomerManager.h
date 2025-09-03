@@ -11,7 +11,7 @@ public:
 
 	const std::vector<Customer> getCustomers();
 	void searchCustomer();
-	void addCustomer();
+	void addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress);
 	void registerCustomer();
 	Customer* searchCustomerByID(int ID);
 };

@@ -82,6 +82,24 @@ void ProductManager::searchProduct() {
     {
         clearScreen();
         verticalPadding();
+        std::cout << horizontalPadding() << "Product Found!!";
+        newLine();
+        std::cout << horizontalPadding() << "PRODUCT INFORMATION";
+        newLine();
+        newLine();
+        std::cout << horizontalPadding() << " ID        : " << ptrToProduct->getProductID();
+        newLine();                                            
+        std::cout << horizontalPadding() << " NAME      : " << ptrToProduct->getProductName();
+        newLine();                                            
+        std::cout << horizontalPadding() << " CATEGORY  : " << ptrToProduct->getProductCategory();
+        newLine();                                            
+        std::cout << horizontalPadding() << " PRICE     : " << ptrToProduct->getProductPrice();
+        newLine();                                            
+        std::cout << horizontalPadding() << " AVAILABLE : " << ptrToProduct->getQuantity();
+        newLine();
+        std::cout << horizontalPadding() << std::string(50, '*');
+        pressToContinue();
+        return;
 
     }
     else {

@@ -11,6 +11,7 @@ public:
         ProductManager();
         void displayProducts() const;
         Product* findProductById(int id);
+        void searchProduct();
         const std::vector<Product>& getProducts() const;
     };
 

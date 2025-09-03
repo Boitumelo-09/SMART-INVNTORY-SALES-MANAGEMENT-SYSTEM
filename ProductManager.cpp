@@ -1,7 +1,7 @@
 #include "utility.h"
 #include "Product.h"
 #include "ProductManager.h"
-#include<string>
+#include <string>
 #include <iostream>
 
 ProductManager::ProductManager() {
@@ -35,11 +35,11 @@ void ProductManager::displayProducts() const{
     clearScreen();
     verticalPadding();
     std::cout << horizontalPadding() <<" A V A I L A B L E - P R O D U C T S ";
-    for (auto &singleProduct : products )
+    for (auto& singleProduct : products)
     {
         newLine();
         std::cout << horizontalPadding() << " ID        : " << singleProduct.getProductID();
-        newLine();                             
+        newLine();
         std::cout << horizontalPadding() << " NAME      : " << singleProduct.getProductName();
         newLine();
         std::cout << horizontalPadding() << " CATEGORY  : " << singleProduct.getProductCategory();
@@ -50,15 +50,47 @@ void ProductManager::displayProducts() const{
         newLine();
         std::cout << horizontalPadding() << std::string(50, '*');
     }
-    
     newLine();
     newLine();
     pressToContinue();
     return;
 }
-     
-}
+    
 Product* ProductManager::findProductById(int id) {
-
+    for (auto& product_ADDRESS : products) {
+        if (id == product_ADDRESS.getProductID())
+        {
+            return &product_ADDRESS;
+        }
+    }
+    return nullptr;
 }
 const std::vector<Product>& ProductManager::getProducts() const { return products; }
+
+void ProductManager::searchProduct() {
+    int searchId=0;
+    clearScreen();
+    verticalPadding();
+    std::cout << horizontalPadding() << "SEARCHING PRODUCT";
+    newLine();
+    newLine();
+    std::cout << horizontalPadding() << "Product ID : ";
+    std::cin >> searchId;
+    Product* ptrToProduct = findProductById(searchId);
+         
+    if (ptrToProduct)
+    {
+        clearScreen();
+        verticalPadding();
+
+    }
+    else {
+        clearScreen();
+        verticalPadding();
+        std::cout << horizontalPadding() << "Product With ID : " << searchId << ", Is Not In Our Database.";
+        newLine();
+        pressToContinue();
+        return;
+    }
+
+}

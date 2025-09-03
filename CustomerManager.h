@@ -9,6 +9,10 @@ class CustomerManager
 	std::vector<Customer>customers;
 public:
 
-
+	const std::vector<Customer> getCustomers();
+	void searchCustomer();
+	void addCustomer();
+	void registerCustomer();
+	Customer* searchCustomerByID(int ID);
 };
 

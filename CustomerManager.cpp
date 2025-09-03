@@ -58,7 +58,14 @@ void CustomerManager::addCustomer(int customerID, std::string& customerName, std
     pressToContinue();
     return;
 }
-void CustomerManager::registerCustomer(){}
+void CustomerManager::registerCustomer(){
+    clearScreen();
+    verticalPadding();
+    std::string newName, newEmail, newAddress;
+    std::cout << horizontalPadding() << "CUSTOMER REGISTRATION";
+    newLine();
+    //deadly measures
+}
 Customer* CustomerManager::searchCustomerByID(int ID){
 
     for (auto &customer : customers) {

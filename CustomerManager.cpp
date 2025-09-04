@@ -54,7 +54,7 @@ void CustomerManager::searchCustomer(){
 void CustomerManager::addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress) {
     int customerID = customers.size() + 4000; 
     customers.push_back(Customer(customerID, customerName, customerEmail, deliveryAddress));
-    std::cout << "Customer " << customerName << " Registered successfully!";
+    std::cout << horizontalPadding()<<"Customer " << customerName << " Registered successfully!";
     newLine();
     pressToContinue();
     return;
@@ -62,17 +62,25 @@ void CustomerManager::addCustomer(int customerID, std::string& customerName, std
 void CustomerManager::registerCustomer(){
     clearScreen();
     verticalPadding();
+    int customerID = customers.size() + 4000;
     std::string regName, regEmail, regAddress;
     std::cout << horizontalPadding() << "CUSTOMER REGISTRATION";
     newLine();
-    std::cout << horizontalPadding() << "Enter Username : ";
+    std::cout << horizontalPadding() << "Enter Username        : ";
     getline(std::cin, regName);
+    newLine();
     //must undergo filters and authentication measures(saved for the future)
-    std::cout << horizontalPadding() << "Enter Username : ";
-    getline(std::cin, regName); 
+    std::cout << horizontalPadding() << "Enter Email Adress    : ";
+    getline(std::cin, regEmail); 
+    newLine();
     //also for future purporses
-    std::cout << horizontalPadding() << "Enter Username : ";
-    getline(std::cin, regName);
+    std::cout << horizontalPadding() << "Enter Physical Address : ";
+    getline(std::cin, regAddress);
+    newLine();
+    //for future updates
+    pressToContinue();
+    addCustomer(customerID,regName, regEmail, regAddress);
+    return;
 }
 Customer* CustomerManager::searchCustomerByID(int ID){
 

@@ -2,7 +2,8 @@
 #include "CustomerManager.h"
 #include <string>
 #include <iostream>
-
+#include <algorithm>
+        
 
 const std::vector<Customer> CustomerManager::getCustomers() { return customers; }
 void CustomerManager::searchCustomer(){
@@ -47,8 +48,6 @@ void CustomerManager::searchCustomer(){
         pressToContinue();
         return;
     }
-
-
 }
 
 void CustomerManager::addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress) {
@@ -97,9 +96,9 @@ void CustomerManager::displayRegisteredCustomers() const {
     std::cout << horizontalPadding() << "R E G I S T E R E D - C U S T O M E R S";
     newLine();
     int totalRegisteredCustomers = 0;
+    std::sort(customers.begin(), customers.end());
     for (auto& singleCustomer : customers)
     {     
-        
         newLine();
         std::cout << horizontalPadding() << " ID      : " << singleCustomer.getCustomerId();
         newLine();                                         
@@ -113,7 +112,7 @@ void CustomerManager::displayRegisteredCustomers() const {
         totalRegisteredCustomers++;
     }
     newLine();
-    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers;
+    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers; 
     newLine();
     pressToContinue();
     return;

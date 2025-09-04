@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <iostream>
+#include <limits>
 
 void clearScreen() {
     system(CLEAR_COMMAND);
@@ -32,4 +33,7 @@ void exitProgram() {
     std::cout << horizontalPadding() << "Thank You For Visiting...";
     verticalPadding();
     exit(0);
+}
+void clearInputBuffer() {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

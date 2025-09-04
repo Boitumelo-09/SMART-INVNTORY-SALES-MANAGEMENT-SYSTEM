@@ -2,8 +2,7 @@
 #include "CustomerManager.h"
 #include <string>
 #include <iostream>
-#include <cctype>
-#include <limits>
+
 
 const std::vector<Customer> CustomerManager::getCustomers() { return customers; }
 void CustomerManager::searchCustomer(){
@@ -63,10 +62,17 @@ void CustomerManager::addCustomer(int customerID, std::string& customerName, std
 void CustomerManager::registerCustomer(){
     clearScreen();
     verticalPadding();
-    std::string newName, newEmail, newAddress;
+    std::string regName, regEmail, regAddress;
     std::cout << horizontalPadding() << "CUSTOMER REGISTRATION";
     newLine();
-    //deadly measures
+    std::cout << horizontalPadding() << "Enter Username : ";
+    getline(std::cin, regName);
+    //must undergo filters and authentication measures(saved for the future)
+    std::cout << horizontalPadding() << "Enter Username : ";
+    getline(std::cin, regName); 
+    //also for future purporses
+    std::cout << horizontalPadding() << "Enter Username : ";
+    getline(std::cin, regName);
 }
 Customer* CustomerManager::searchCustomerByID(int ID){
 

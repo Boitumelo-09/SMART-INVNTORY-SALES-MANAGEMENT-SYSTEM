@@ -18,5 +18,5 @@ std::string horizontalPadding();
 
 void verticalPadding();
 void exitProgram();
-
+void clearInputBuffer();
 #endif

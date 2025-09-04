@@ -51,7 +51,7 @@ void CustomerManager::searchCustomer(){
 }
 
 void CustomerManager::addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress) {
-    int customerID = customers.size() + 4000; 
+    
     customers.push_back(Customer(customerID, customerName, customerEmail, deliveryAddress));
     std::cout << horizontalPadding()<<"Customer " << customerName << " Registered successfully!";
     newLine();

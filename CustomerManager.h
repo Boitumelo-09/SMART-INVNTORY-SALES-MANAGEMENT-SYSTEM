@@ -13,6 +13,7 @@ public:
 	void searchCustomer();
 	void addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress);
 	void registerCustomer();
+	void displayRegisteredCustomers() const;
 	Customer* searchCustomerByID(int ID);
 };
 

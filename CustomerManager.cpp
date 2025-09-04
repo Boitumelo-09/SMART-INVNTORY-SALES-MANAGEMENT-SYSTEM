@@ -91,3 +91,30 @@ Customer* CustomerManager::searchCustomerByID(int ID){
     }
     return nullptr;
 }
+void CustomerManager::displayRegisteredCustomers() const {
+    clearScreen();
+    verticalPadding();
+    std::cout << horizontalPadding() << "R E G I S T E R E D - C U S T O M E R S";
+    newLine();
+    int totalRegisteredCustomers = 0;
+    for (auto& singleCustomer : customers)
+    {     
+        
+        newLine();
+        std::cout << horizontalPadding() << " ID      : " << singleCustomer.getCustomerId();
+        newLine();                                         
+        std::cout << horizontalPadding() << " NAME    : " << singleCustomer.getCustomerName();
+        newLine();                                         
+        std::cout << horizontalPadding() << " EMAIL   : " << singleCustomer.getCustomerEmail();
+        newLine();                                           
+        std::cout << horizontalPadding() << " ADDRESS : " << singleCustomer.getCustomerAddress();
+        newLine();
+        std::cout << horizontalPadding() << std::string(50, '*');
+        totalRegisteredCustomers++;
+    }
+    newLine();
+    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers;
+    newLine();
+    pressToContinue();
+    return;
+}

@@ -130,6 +130,7 @@
     <ClCompile Include="OrderManager.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="ProductManager.cpp" />
+    <ClCompile Include="SystemEngine.cpp" />
     <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Product.h" />
     <ClInclude Include="ProductManager.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SystemEngine.h" />
     <ClInclude Include="utility.h" />
   </ItemGroup>
   <ItemGroup>

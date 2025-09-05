@@ -23,6 +23,7 @@ public:
     void setOrderStatus(std::string newStatus) const;
     void addToOrder(Product& product);
     void displayOrder() const;
+    void createOrder();
 };
 
 

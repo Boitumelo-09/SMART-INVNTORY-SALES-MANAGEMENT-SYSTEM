@@ -10,7 +10,7 @@ class OrderManager
 	std::vector<Order> orders;
 public:
 	const std::vector<Order> getOrders();
-	void createOrder();
+	void createOrder(Customer& customer);
 	void displayAllOrders();
 	void displayCustomerOrderSummary();
 

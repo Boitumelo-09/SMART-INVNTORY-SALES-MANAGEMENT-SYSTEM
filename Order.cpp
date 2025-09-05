@@ -16,9 +16,7 @@ void Order::addToOrder(Product& product){
 	itemsInCart.push_back(product);
 	totalAmount += product.getProductPrice();
 }
-void Order::createOrder() {
 
-}
 void Order::displayOrder() const{
 	clearScreen();
 	verticalPadding();

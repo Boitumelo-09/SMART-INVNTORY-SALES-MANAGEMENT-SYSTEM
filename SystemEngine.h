@@ -9,7 +9,11 @@
 
 class SystemEngine
 {
-private:
+    ProductManager productManager;
+    CustomerManager customerManager;
+    OrderManager orderManager;
+public:
+    
 
 };
 

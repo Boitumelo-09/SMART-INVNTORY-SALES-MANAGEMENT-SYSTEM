@@ -12,7 +12,7 @@ public:
 	const std::vector<Order> getOrders();
 	void createOrder(Customer& customer);
 	void displayAllOrders();
-	void displayCustomerOrderSummary();
+	void displayCustomerOrderSummary(Customer& customer);
 
 };
 

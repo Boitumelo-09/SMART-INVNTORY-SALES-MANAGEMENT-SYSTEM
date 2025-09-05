@@ -32,7 +32,13 @@ void OrderManager::displayAllOrders(){
 	pressToContinue();
 	return;
 }
-void OrderManager::displayCustomerOrderSummary(){
+void OrderManager::displayCustomerOrderSummary(Customer&customer){
+	clearScreen();
+	verticalPadding();
+	std::cout << horizontalPadding() << " I N V O I C E ";
+	newLine();
+	customer.displayCustomer();
+	displayAllOrders();
 
 
 }

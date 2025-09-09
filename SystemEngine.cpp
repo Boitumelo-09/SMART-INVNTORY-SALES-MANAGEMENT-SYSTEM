@@ -15,7 +15,7 @@ void System::mainMenu() {
     verticalPadding();
     std::cout << horizontalPadding() << "M A I N - M E N U";
     newLine();
-    std::cout << horizontalPadding() << "1. Customer Ops";
+    std::cout << horizontalPadding() << "1. Customer Services";
     newLine();
     std::cout << horizontalPadding() << "2. Adiministration";
     newLine();
@@ -56,7 +56,7 @@ void System::customerMenu() {
     std::cout << horizontalPadding() << "4. Back";
     newLine();
     newLine();
-    std::cout << horizontalPadding() << "Choose Option: ";
+    std::cout << horizontalPadding() << "Option : ";
 
     int choice;
     std::cin >> choice;

@@ -15,6 +15,7 @@ void CustomerManager::searchCustomer() {
     newLine();
     std::cout << horizontalPadding() << "Customer ID : ";
     std::cin >> searchId;
+    std::cin.ignore();
     Customer* ptrToCustomer = searchCustomerByID(searchId);
 
     if (ptrToCustomer) {
@@ -52,7 +53,7 @@ void CustomerManager::addCustomer(int customerID, const std::string& customerNam
     customers.push_back(Customer(customerID, customerName, customerEmail, deliveryAddress));
     std::cout << horizontalPadding() << "Customer " << customerName << " Registered successfully!";
     newLine();
-    std::cout<<"Customer ID : "<<customerID;
+    std::cout<<horizontalPadding()<<"Customer ID : "<<customerID;
     pressToContinue();
     return;
 }
@@ -65,7 +66,7 @@ void CustomerManager::registerCustomer() {
     std::cout << horizontalPadding() << "CUSTOMER REGISTRATION";
     newLine();
     std::cout << horizontalPadding() << "Enter Username        : ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+ 
     std::getline(std::cin, regName);
     newLine();
     std::cout << horizontalPadding() << "Enter Email Address   : ";
@@ -94,13 +95,14 @@ void CustomerManager::displayRegisteredCustomers() const {
     std::cout << horizontalPadding() << "R E G I S T E R E D - C U S T O M E R S";
     newLine();
     int totalRegisteredCustomers = 0;
-    // sort by customer ID before listing (non-modifying view is not possible, we copy if we wanted to avoid changing original)
-    std::vector<Customer> sorted = customers;
-    std::sort(sorted.begin(), sorted.end(), [](const Customer& a, const Customer& b) {
-        return a.getCustomerId() < b.getCustomerId();
-        });
-
-    for (auto& singleCustomer : sorted)
+    if (customers.empty()) {
+        std::cout<<horizontalPadding() << "404, No Registered Customers";
+		pressToContinue();
+		return;
+    }
+    else
+    {
+       for (auto& singleCustomer : customers)
     {
         newLine();
         std::cout << horizontalPadding() << " ID      : " << singleCustomer.getCustomerId();
@@ -119,4 +121,6 @@ void CustomerManager::displayRegisteredCustomers() const {
     newLine();
     pressToContinue();
     return;
+    }
+    
 }

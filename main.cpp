@@ -1,7 +1,7 @@
 #include "SystemEngine.h"
 
 int main() {
-    System app;
-    app.run();
+    System application;
+	application.run();
     return 0;
 }

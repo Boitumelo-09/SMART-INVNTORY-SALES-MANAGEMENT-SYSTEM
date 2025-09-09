@@ -1,4 +1,3 @@
-
 #pragma once
 #include <vector>
 #include <string>
@@ -6,24 +5,20 @@
 #include "Customer.h"
 
 class Order {
-
-    int orderId;                 
-    Customer customer;           
+    int orderId;
+    Customer customer;
     std::vector<Product> itemsInCart;
-    double totalAmount;          
-    std::string orderStatus;          
+    double totalAmount;
+    std::string orderStatus;
 public:
     Order(int id, Customer& customer);
-    
+
     int getOrderID() const;
     double getTotalAmount() const;
-    Customer getCustomer() const;
+    const Customer& getCustomer() const;
     std::string getOrderStatus() const;
 
-    void setOrderStatus(std::string newStatus) const;
-    void addToOrder(Product& product);
+    void setOrderStatus(const std::string& newStatus);
+    void addToOrder(const Product& product);
     void displayOrder() const;
-    
 };
-
-

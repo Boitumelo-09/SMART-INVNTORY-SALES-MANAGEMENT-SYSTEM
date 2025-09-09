@@ -57,8 +57,8 @@ It simulates the workflow of a small online shop, allowing you to manage
 ### 1. Clone the Repository
 
 ``` bash
-git clone https://github.com/boitumelo-09/ecommerce-system-cpp.git
-cd ecommerce-system-cpp
+git clone https://github.com/boitumelo-09/SMART-INVNTORY-SALES-MANAGEMENT-SYSTEM.git
+cd SMART-INVNTORY-SALES-MANAGEMENT-SYSTEM.cpp
 ```
 
 ### 2. Compile the Project
@@ -66,13 +66,13 @@ cd ecommerce-system-cpp
 Use `g++` to compile all source files:
 
 ``` bash
-g++ src/*.cpp main.cpp -I include -o ecommerce_app
+g++ src/*.cpp main.cpp -I include -o SMART-INVNTORY-SALES-MANAGEMENT-SYSTEM
 ```
 
 ### 3. Run the Program
 
 ``` bash
-./ecommerce_app
+./SMART-INVNTORY-SALES-MANAGEMENT-SYSTEM
 ```
 
 ------------------------------------------------------------------------
@@ -81,12 +81,12 @@ g++ src/*.cpp main.cpp -I include -o ecommerce_app
 
 ### Main Menu
 
+   
+        Main Menu
     ==============================
-        E-Commerce System
-    ==============================
-    1. Manage Customers
-    2. Manage Products
-    3. Manage Orders
+    1. Customers Services
+    2. Administration
+    3. Orders
     0. Exit
     Choose an option:
 

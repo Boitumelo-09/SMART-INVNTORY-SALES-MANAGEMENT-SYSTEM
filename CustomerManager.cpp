@@ -3,10 +3,10 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-        
 
-const std::vector<Customer> CustomerManager::getCustomers() { return customers; }
-void CustomerManager::searchCustomer(){
+const std::vector<Customer>& CustomerManager::getCustomers() const { return customers; }
+
+void CustomerManager::searchCustomer() {
     int searchId = 0;
     clearScreen();
     verticalPadding();
@@ -17,8 +17,7 @@ void CustomerManager::searchCustomer(){
     std::cin >> searchId;
     Customer* ptrToCustomer = searchCustomerByID(searchId);
 
-    if (ptrToCustomer)
-    {
+    if (ptrToCustomer) {
         clearScreen();
         verticalPadding();
         std::cout << horizontalPadding() << "Customer Found!!";
@@ -27,18 +26,16 @@ void CustomerManager::searchCustomer(){
         newLine();
         newLine();
         std::cout << horizontalPadding() << " ID      : " << ptrToCustomer->getCustomerId();
-        newLine();                                                               
+        newLine();
         std::cout << horizontalPadding() << " NAME    : " << ptrToCustomer->getCustomerName();
-        newLine();                                                               
+        newLine();
         std::cout << horizontalPadding() << " EMAIL   : " << ptrToCustomer->getCustomerEmail();
-        newLine();                                                              
+        newLine();
         std::cout << horizontalPadding() << " ADDRESS : " << ptrToCustomer->getCustomerAddress();
-        newLine();                                                 
-        
+        newLine();
         std::cout << horizontalPadding() << std::string(50, '*');
         pressToContinue();
         return;
-
     }
     else {
         clearScreen();
@@ -50,69 +47,73 @@ void CustomerManager::searchCustomer(){
     }
 }
 
-void CustomerManager::addCustomer(int customerID, std::string& customerName, std::string& customerEmail, std::string& deliveryAddress) {
-    
+void CustomerManager::addCustomer(int customerID, const std::string& customerName, const std::string& customerEmail, const std::string& deliveryAddress) {
     customers.push_back(Customer(customerID, customerName, customerEmail, deliveryAddress));
-    std::cout << horizontalPadding()<<"Customer " << customerName << " Registered successfully!";
+    std::cout << horizontalPadding() << "Customer " << customerName << " Registered successfully!";
     newLine();
     pressToContinue();
     return;
 }
-void CustomerManager::registerCustomer(){
+
+void CustomerManager::registerCustomer() {
     clearScreen();
     verticalPadding();
-    int customerID = customers.size() + 4000;
+    int customerID = static_cast<int>(customers.size()) + 4000;
     std::string regName, regEmail, regAddress;
     std::cout << horizontalPadding() << "CUSTOMER REGISTRATION";
     newLine();
     std::cout << horizontalPadding() << "Enter Username        : ";
-    getline(std::cin, regName);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, regName);
     newLine();
-    //must undergo filters and authentication measures(saved for the future)
-    std::cout << horizontalPadding() << "Enter Email Adress    : ";
-    getline(std::cin, regEmail); 
+    std::cout << horizontalPadding() << "Enter Email Address   : ";
+    std::getline(std::cin, regEmail);
     newLine();
-    //also for future purporses
-    std::cout << horizontalPadding() << "Enter Physical Address : ";
-    getline(std::cin, regAddress);
+    std::cout << horizontalPadding() << "Enter Physical Address: ";
+    std::getline(std::cin, regAddress);
     newLine();
-    //for future updates
     pressToContinue();
-    addCustomer(customerID,regName, regEmail, regAddress);
+    addCustomer(customerID, regName, regEmail, regAddress);
     return;
 }
-Customer* CustomerManager::searchCustomerByID(int ID){
 
-    for (auto &customer : customers) {
+Customer* CustomerManager::searchCustomerByID(int ID) {
+    for (auto& customer : customers) {
         if (ID == customer.getCustomerId()) {
             return &customer;
         }
     }
     return nullptr;
 }
+
 void CustomerManager::displayRegisteredCustomers() const {
     clearScreen();
     verticalPadding();
     std::cout << horizontalPadding() << "R E G I S T E R E D - C U S T O M E R S";
     newLine();
     int totalRegisteredCustomers = 0;
-    std::sort(customers.begin(), customers.end());
-    for (auto& singleCustomer : customers)
-    {     
+    // sort by customer ID before listing (non-modifying view is not possible, we copy if we wanted to avoid changing original)
+    std::vector<Customer> sorted = customers;
+    std::sort(sorted.begin(), sorted.end(), [](const Customer& a, const Customer& b) {
+        return a.getCustomerId() < b.getCustomerId();
+        });
+
+    for (auto& singleCustomer : sorted)
+    {
         newLine();
         std::cout << horizontalPadding() << " ID      : " << singleCustomer.getCustomerId();
-        newLine();                                         
+        newLine();
         std::cout << horizontalPadding() << " NAME    : " << singleCustomer.getCustomerName();
-        newLine();                                         
+        newLine();
         std::cout << horizontalPadding() << " EMAIL   : " << singleCustomer.getCustomerEmail();
-        newLine();                                           
+        newLine();
         std::cout << horizontalPadding() << " ADDRESS : " << singleCustomer.getCustomerAddress();
         newLine();
         std::cout << horizontalPadding() << std::string(50, '*');
         totalRegisteredCustomers++;
     }
     newLine();
-    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers; 
+    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers;
     newLine();
     pressToContinue();
     return;

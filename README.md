@@ -57,7 +57,7 @@ It simulates the workflow of a small online shop, allowing you to manage
 ### 1. Clone the Repository
 
 ``` bash
-git clone https://github.com/your-username/ecommerce-system-cpp.git
+git clone https://github.com/boitumelo-09/ecommerce-system-cpp.git
 cd ecommerce-system-cpp
 ```
 
@@ -77,14 +77,42 @@ g++ src/*.cpp main.cpp -I include -o ecommerce_app
 
 ------------------------------------------------------------------------
 
-## 🧑‍💻 How It Works
+## 🖼️ Demo / Screenshots
 
-1.  Run the program to access the **Main Menu**.\
-2.  Navigate to:
-    -   **Customer Menu** → Add/view/search customers\
-    -   **Product Menu** → Add/view/search products\
-    -   **Order Menu** → Create/view/update orders\
-3.  Exit when done.
+### Main Menu
+
+    ==============================
+        E-Commerce System
+    ==============================
+    1. Manage Customers
+    2. Manage Products
+    3. Manage Orders
+    0. Exit
+    Choose an option:
+
+### Customer Menu
+
+    --- Customer Menu ---
+    1. Add Customer
+    2. View Customers
+    3. Search Customer by ID
+    0. Back
+
+### Product Menu
+
+    --- Product Menu ---
+    1. Add Product
+    2. View Products
+    3. Search Product by ID
+    0. Back
+
+### Order Menu
+
+    --- Order Menu ---
+    1. Place Order
+    2. View Orders
+    3. Update Order Status
+    0. Back
 
 ------------------------------------------------------------------------
 

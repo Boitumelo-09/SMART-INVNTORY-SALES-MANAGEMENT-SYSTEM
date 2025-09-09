@@ -1,8 +1,7 @@
-#include "utility.h"
-#include <iostream>
+#include "SystemEngine.h"
+
 int main() {
-    verticalPadding();
-    std::cout<<horizontalPadding() << "hello world";
-    pressToContinue();
+    System app;
+    app.run();
     return 0;
-    } 
+}

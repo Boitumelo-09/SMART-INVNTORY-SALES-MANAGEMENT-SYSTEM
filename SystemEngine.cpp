@@ -45,7 +45,7 @@ void System::mainMenu() {
 void System::customerMenu() {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "==== C U S T O M E R - M E N U ====";
+    std::cout << horizontalPadding() << " C U S T O M E R - M E N U ";
     newLine();
     std::cout << horizontalPadding() << "1. Register Customer";
     newLine();
@@ -77,7 +77,7 @@ void System::customerMenu() {
 void System::productMenu() {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "==== P R O D U C T - M E N U ====";
+    std::cout << horizontalPadding() << " P R O D U C T - M E N U ";
     newLine();
     std::cout << horizontalPadding() << "1. Display Products";
     newLine();
@@ -106,7 +106,7 @@ void System::productMenu() {
 void System::orderMenu() {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "==== O R D E R - M E N U ====";
+    std::cout << horizontalPadding() << "O R D E R - M E N U ";
     newLine();
     std::cout << horizontalPadding() << "1. Create Order";
     newLine();

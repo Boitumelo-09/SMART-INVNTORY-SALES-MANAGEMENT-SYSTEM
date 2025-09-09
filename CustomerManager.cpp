@@ -48,9 +48,11 @@ void CustomerManager::searchCustomer() {
 }
 
 void CustomerManager::addCustomer(int customerID, const std::string& customerName, const std::string& customerEmail, const std::string& deliveryAddress) {
+    verticalPadding();
     customers.push_back(Customer(customerID, customerName, customerEmail, deliveryAddress));
     std::cout << horizontalPadding() << "Customer " << customerName << " Registered successfully!";
     newLine();
+    std::cout<<"Customer ID : "<<customerID;
     pressToContinue();
     return;
 }

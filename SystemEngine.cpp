@@ -1,7 +1,7 @@
 #include "SystemEngine.h"
 
 System::System() {
-    // You can load sample data here if needed
+  
 }
 
 void System::run() {
@@ -13,22 +13,22 @@ void System::run() {
 void System::mainMenu() {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "==== M A I N - M E N U ====";
+    std::cout << horizontalPadding() << "M A I N - M E N U";
     newLine();
-    std::cout << horizontalPadding() << "1. Customer Operations";
+    std::cout << horizontalPadding() << "1. Customer Ops";
     newLine();
-    std::cout << horizontalPadding() << "2. Product Operations";
+    std::cout << horizontalPadding() << "2. Adiministration";
     newLine();
-    std::cout << horizontalPadding() << "3. Order Operations";
+    std::cout << horizontalPadding() << "3. Orders";
     newLine();
-    std::cout << horizontalPadding() << "4. Exit";
+    std::cout << horizontalPadding() << "4. Exit Menu";
     newLine();
     newLine();
-    std::cout << horizontalPadding() << "Choose Option: ";
+    std::cout << horizontalPadding() << "Option : ";
 
     int choice;
     std::cin >> choice;
-    std::cin.ignore(); // flush newline
+    std::cin.ignore(); 
 
     switch (choice) {
     case 1: customerMenu(); break;
@@ -45,9 +45,9 @@ void System::mainMenu() {
 void System::customerMenu() {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << " C U S T O M E R - M E N U ";
+    std::cout << horizontalPadding() << " H E L L O , C U S T O M E R";
     newLine();
-    std::cout << horizontalPadding() << "1. Register Customer";
+    std::cout << horizontalPadding() << "1. Register";
     newLine();
     std::cout << horizontalPadding() << "2. Search Customer";
     newLine();

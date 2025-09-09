@@ -15,9 +15,9 @@ class System
 public:
     System();
 
-    void run();                  // Start system loop
+    void run();                 
 private:
-    void mainMenu();             // Main menu navigation
+    void mainMenu();             
     void customerMenu();         // Customer operations
     void productMenu();          // Product operations
     void orderMenu();            // Order operations

@@ -102,7 +102,7 @@ void System::productMenu() {
     case 3: return;
     default:
 		clearScreen();
-		verticalPadding();s
+		verticalPadding();
         std::cout << horizontalPadding() << "Invalid choice!";
         pressToContinue();
         break;

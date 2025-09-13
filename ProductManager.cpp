@@ -2,6 +2,7 @@
 #include "Product.h"
 #include "ProductManager.h"
 #include <string>
+
 #include <iostream>
 
 ProductManager::ProductManager() {
@@ -68,7 +69,7 @@ Product* ProductManager::findProductById(int id) {
 const std::vector<Product>& ProductManager::getProducts() const { return products; }
 
 void ProductManager::searchProduct() {
-    int searchId=0;
+    int searchId{0};
     clearScreen();
     verticalPadding();
     std::cout << horizontalPadding() << "SEARCHING PRODUCT";
@@ -76,6 +77,7 @@ void ProductManager::searchProduct() {
     newLine();
     std::cout << horizontalPadding() << "Product ID : ";
     std::cin >> searchId;
+    clearBuffer();
     Product* ptrToProduct = findProductById(searchId);
          
     if (ptrToProduct)
@@ -100,7 +102,6 @@ void ProductManager::searchProduct() {
         std::cout << horizontalPadding() << std::string(50, '*');
         pressToContinue();
         return;
-
     }
     else {
         clearScreen();

@@ -36,6 +36,8 @@ void System::mainMenu() {
     case 3: orderMenu(); break;
     case 4: exitProgram(); break;
     default:
+        clearScreen();
+		verticalPadding();
         std::cout << horizontalPadding() << "Invalid choice!";
         pressToContinue();
         break;
@@ -68,6 +70,8 @@ void System::customerMenu() {
     case 3: customerManager.displayRegisteredCustomers(); break;
     case 4: return;
     default:
+		clearScreen();
+        verticalPadding();
         std::cout << horizontalPadding() << "Invalid choice!";
         pressToContinue();
         break;
@@ -97,6 +101,8 @@ void System::productMenu() {
     case 2: productManager.searchProduct(); break;
     case 3: return;
     default:
+		clearScreen();
+		verticalPadding();s
         std::cout << horizontalPadding() << "Invalid choice!";
         pressToContinue();
         break;

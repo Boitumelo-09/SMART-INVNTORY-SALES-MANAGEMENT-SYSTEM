@@ -1,7 +1,9 @@
 #include "utility.h"
 #include <string>
 #include <cstdlib>
+#include <limits>
 #include <iostream>
+
 
 void clearScreen() {
     system(CLEAR_COMMAND);
@@ -32,4 +34,7 @@ void exitProgram() {
     std::cout << horizontalPadding() << "Thank You For Visiting...";
     verticalPadding();
     exit(0);
+}
+void clearBuffer() {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

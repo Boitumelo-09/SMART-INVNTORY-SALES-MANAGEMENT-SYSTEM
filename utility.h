@@ -13,7 +13,7 @@
 void clearScreen();
 void newLine();
 void pressToContinue();
-
+void clearBuffer();
 std::string horizontalPadding();
 
 void verticalPadding();

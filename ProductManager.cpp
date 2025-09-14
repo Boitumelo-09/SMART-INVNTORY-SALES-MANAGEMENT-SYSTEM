@@ -25,37 +25,51 @@ ProductManager::ProductManager() {
     products.push_back(Product(1014, "Wristwatch", "Accessories", 999.00, 15));
     products.push_back(Product(1015, "Belt", "Accessories", 179.99, 35));
                                
-    products.push_back(Product(1016, "Coffee Maker", "Home & Lifestyle", 899.00, 10));
-    products.push_back(Product(1017, "Desk Lamp", "Home & Lifestyle", 299.99, 20));
-    products.push_back(Product(1018, "Electric Kettle", "Home & Lifestyle", 399.50, 18));
-    products.push_back(Product(1019, "Vacuum Cleaner", "Home & Lifestyle", 1899.99, 8));
-    products.push_back(Product(1020, "Air Fryer", "Home & Lifestyle", 1499.00, 12));
+    products.push_back(Product(1016, "Coffee Maker", "Home & Style", 899.00, 10));
+    products.push_back(Product(1017, "Desk Lamp", "Home & Style", 299.99, 20));
+    products.push_back(Product(1018, "Electric Kettle", "Home & Style", 399.50, 18));
+    products.push_back(Product(1019, "Vacuum Cleaner", "Home & Style", 1899.99, 8));
+    products.push_back(Product(1020, "Air Fryer", "Home & Style", 1499.00, 12));
 
 }
-void ProductManager::displayProducts() const{
+#include <iomanip>  // for setw, left, right
+
+void ProductManager::displayProducts() const {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() <<" A V A I L A B L E - P R O D U C T S ";
-    for (auto& singleProduct : products)
-    {
-        newLine();
-        std::cout << horizontalPadding() << " ID        : " << singleProduct.getProductID();
-        newLine();
-        std::cout << horizontalPadding() << " NAME      : " << singleProduct.getProductName();
-        newLine();
-        std::cout << horizontalPadding() << " CATEGORY  : " << singleProduct.getProductCategory();
-        newLine();
-        std::cout << horizontalPadding() << " PRICE     : " << singleProduct.getProductPrice();
-        newLine();
-        std::cout << horizontalPadding() << " AVAILABLE : " << singleProduct.getQuantity();
-        newLine();
-        std::cout << horizontalPadding() << std::string(50, '*');
-    }
+
+    std::cout << horizontalPadding()
+        << " A V A I L A B L E - P R O D U C T S ";
     newLine();
+    newLine();
+
+    // Print table header
+    std::cout << horizontalPadding()
+        << std::left << std::setw(6) << "ID"
+        << std::setw(20) << "NAME"
+        << std::setw(15) << "CATEGORY"
+        << std::setw(10) << "PRICE"
+        << std::setw(12) << "AVAILABLE";
+    newLine();
+
+    std::cout << horizontalPadding()
+        << std::string(65, '-') << "\n";
+
+    // Print each product in a row
+    for (const auto& singleProduct : products) {
+        std::cout << horizontalPadding()
+            << std::left << std::setw(6) << singleProduct.getProductID()
+            << std::setw(20) << singleProduct.getProductName()
+            << std::setw(15) << singleProduct.getProductCategory()
+            << std::setw(10) << singleProduct.getProductPrice()
+            << std::setw(12) << singleProduct.getQuantity()
+            << "\n";
+    }
+
     newLine();
     pressToContinue();
-    return;
 }
+
     
 Product* ProductManager::findProductById(int id) {
     for (auto& product_ADDRESS : products) {

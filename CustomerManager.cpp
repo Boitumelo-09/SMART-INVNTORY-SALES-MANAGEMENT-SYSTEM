@@ -1,6 +1,7 @@
 #include "utility.h"
 #include "CustomerManager.h"
 #include <string>
+#include <iomanip>         
 #include <iostream>
 #include <algorithm>
 
@@ -89,38 +90,52 @@ Customer* CustomerManager::searchCustomerByID(int ID) {
     return nullptr;
 }
 
+#include <iomanip>  // for setw, left
+
 void CustomerManager::displayRegisteredCustomers() const {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "R E G I S T E R E D - C U S T O M E R S";
+    std::cout << horizontalPadding()
+        << "R E G I S T E R E D - C U S T O M E R S";
     newLine();
-    int totalRegisteredCustomers = 0;
+    newLine();
+
     if (customers.empty()) {
-        std::cout<<horizontalPadding() << "404, No Registered Customers";
-		pressToContinue();
-		return;
+        std::cout << horizontalPadding() << "404, No Registered Customers";
+        newLine();
+        pressToContinue();
+        return;
     }
-    else
-    {
-       for (auto& singleCustomer : customers)
-    {
-        newLine();
-        std::cout << horizontalPadding() << " ID      : " << singleCustomer.getCustomerId();
-        newLine();
-        std::cout << horizontalPadding() << " NAME    : " << singleCustomer.getCustomerName();
-        newLine();
-        std::cout << horizontalPadding() << " EMAIL   : " << singleCustomer.getCustomerEmail();
-        newLine();
-        std::cout << horizontalPadding() << " ADDRESS : " << singleCustomer.getCustomerAddress();
-        newLine();
-        std::cout << horizontalPadding() << std::string(50, '*');
+
+    // Print table header
+    std::cout << horizontalPadding()
+        << std::left << std::setw(6) << "ID"
+        << std::setw(20) << "NAME"
+        << std::setw(25) << "EMAIL"
+        << std::setw(30) << "ADDRESS";
+    newLine();
+
+    std::cout << horizontalPadding()
+        << std::string(85, '-') << "\n";
+
+    int totalRegisteredCustomers = 0;
+
+    // Print each customer
+    for (const auto& singleCustomer : customers) {
+        std::cout << horizontalPadding()
+            << std::left << std::setw(6) << singleCustomer.getCustomerId()
+            << std::setw(20) << singleCustomer.getCustomerName()
+            << std::setw(25) << singleCustomer.getCustomerEmail()
+            << std::setw(30) << singleCustomer.getCustomerAddress()
+            << "\n";
+
         totalRegisteredCustomers++;
     }
+
     newLine();
-    std::cout << horizontalPadding() << "Total Customers : " << totalRegisteredCustomers;
+    std::cout << horizontalPadding()
+        << "Total Customers : " << totalRegisteredCustomers;
     newLine();
     pressToContinue();
-    return;
-    }
-    
 }
+

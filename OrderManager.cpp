@@ -24,16 +24,26 @@ void OrderManager::createOrder(Customer& customer) {
 void OrderManager::displayAllOrders() const {
     clearScreen();
     verticalPadding();
-    std::cout << horizontalPadding() << "Placed Orders";
-    newLine();
-    for (const auto& order : orders) {
-        std::cout << horizontalPadding() << "ORDER ID : " << order.getOrderID();
-        newLine();
-        std::cout << horizontalPadding() << "CUSTOMER : " << order.getCustomer().getCustomerName();
-        newLine();
-        std::cout << horizontalPadding() << "TOTAL    : R" << order.getTotalAmount();
-        newLine();
-    }
+        if(orders.empty()){
+			std::cout << horizontalPadding() << "No orders placed yet.";
+			newLine();
+
+            pressToContinue();
+			return;
+
+        }else{
+            std::cout << horizontalPadding() << "Placed Orders";
+            newLine();
+            for (const auto& order : orders) {
+                std::cout << horizontalPadding() << "ORDER ID : " << order.getOrderID();
+                newLine();
+                std::cout << horizontalPadding() << "CUSTOMER : " << order.getCustomer().getCustomerName();
+                newLine();
+                std::cout << horizontalPadding() << "TOTAL    : R" << order.getTotalAmount();
+                newLine();
+            }
+        }
+    
     std::cout << horizontalPadding() << std::string(50, '*');
     pressToContinue();
     return;

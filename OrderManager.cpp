@@ -25,14 +25,17 @@ void OrderManager::displayAllOrders() const {
     clearScreen();
     verticalPadding();
         if(orders.empty()){
+            std::cout << horizontalPadding() << std::string(50, '*');
 			std::cout << horizontalPadding() << "No orders placed yet.";
 			newLine();
-
+            std::cout << horizontalPadding() << std::string(50, '*');
             pressToContinue();
 			return;
 
         }else{
             std::cout << horizontalPadding() << "Placed Orders";
+            newLine();
+            std::cout << horizontalPadding() << std::string(50, '*');
             newLine();
             for (const auto& order : orders) {
                 std::cout << horizontalPadding() << "ORDER ID : " << order.getOrderID();

@@ -9,18 +9,17 @@ void OrderManager::createOrder(Customer& customer) {
     clearScreen();
     verticalPadding();
     int orderID = static_cast<int>(orders.size()) + 3000;
+
+
+
+
+
     orders.push_back(Order(orderID, customer));
     std::cout << horizontalPadding() << "Order Successfully made";
     newLine();
     pressToContinue();
 }
 
-void OrderManager::addOrder(const Order& order) {
-    orders.push_back(order);
-    std::cout << horizontalPadding() << "Order added successfully! [Order ID: " << order.getOrderID() << "]";
-    newLine();
-    pressToContinue();
-}
 
 void OrderManager::displayAllOrders() const {
     clearScreen();

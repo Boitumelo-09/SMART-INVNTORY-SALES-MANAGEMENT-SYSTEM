@@ -5,15 +5,10 @@
 
 const std::vector<Order>& OrderManager::getOrders() const { return orders; }
 
-void OrderManager::createOrder(Customer& customer) {
+void OrderManager::createOrder(Customer& customer , const ProductManager& productManager) {
     clearScreen();
     verticalPadding();
     int orderID = static_cast<int>(orders.size()) + 3000;
-
-
-
-
-
     orders.push_back(Order(orderID, customer));
     std::cout << horizontalPadding() << "Order Successfully made";
     newLine();

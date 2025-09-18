@@ -5,7 +5,13 @@
 #include <iostream>
 
 Order::Order(int id, Customer& customer) : orderId(id), customer(customer), totalAmount(0), orderStatus("Processing") {}
-
+void Order::addProduct(Product* product, int qty) {
+	for (int i = 0; i < qty; i++) {
+		itemsInCart.push_back(*product);
+		totalAmount += product->getProductPrice();
+	}
+    return;
+}
 int Order::getOrderID() const { return orderId; }
 double Order::getTotalAmount() const { return totalAmount; }
 const Customer& Order::getCustomer() const { return customer; }

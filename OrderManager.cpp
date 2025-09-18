@@ -4,18 +4,61 @@
 #include <iostream>
 
 const std::vector<Order>& OrderManager::getOrders() const { return orders; }
+	
 
 void OrderManager::createOrder(Customer& customer) {
-    ProductManager productManager;
+    ProductManager productManager;  
+    int qty{ 0 };
+    int productID{0};
     clearScreen();
     verticalPadding();
     std::cout << horizontalPadding() << "C R E A T E - O R D E R";
 	newLine();
 	newLine();
-    productManager.displayProducts();
+   
 	newLine();
     int orderID = static_cast<int>(orders.size()) + 3000;
-    orders.push_back(Order(orderID, customer));
+    Order newOrder(orderID, customer);
+    bool shopping = true;
+    while (shopping) {
+            productManager.displayProducts();
+            newLine();
+          
+std::cout<< horizontalPadding() << "Enter Product ID: ";
+			std::cin >> productID;
+            clearBuffer();
+            if (productID == 0) {
+                shopping = false;
+                break;
+            }
+            else{
+          
+           Product* product = productManager.findProductById(productID);
+           if (!product) {
+               std::cout << horizontalPadding() << "Invalid Product ID.\n";
+               continue;
+           }
+          
+               
+               std::cout << horizontalPadding() << "Enter quantity: ";
+               std::cin >> qty;
+               clearBuffer();
+
+               if (qty > 0 && qty <= product->getQuantity()) {
+                   newOrder.addProduct(product, qty);  
+                   product->setQuantity(product->getQuantity() - qty); 
+                   std::cout << horizontalPadding() << "Added " << qty
+                       << " x " << product->getProductName() << " to order.\n";
+               }
+               else {
+                   std::cout << horizontalPadding() << "Invalid quantity.\n";
+               }
+           
+            }
+
+    }
+        
+    orders.push_back(newOrder);
     std::cout << horizontalPadding() << "Order Successfully made";
     newLine();
     pressToContinue();

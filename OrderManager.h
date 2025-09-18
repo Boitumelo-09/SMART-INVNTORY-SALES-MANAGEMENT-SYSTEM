@@ -9,7 +9,8 @@ class OrderManager {
     std::vector<Order> orders;
 public:
     const std::vector<Order>& getOrders() const;
-    void createOrder(Customer& customer);      
+    void createOrder(Customer& customer);  
+    void addProduct(Product&product, int qty);
     void displayAllOrders() const;
     void displayCustomerOrderSummary(const Customer& customer) const;
     Order* findOrderById(int id);

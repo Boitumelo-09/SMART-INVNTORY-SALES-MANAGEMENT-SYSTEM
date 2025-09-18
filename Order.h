@@ -12,7 +12,7 @@ class Order {
     std::string orderStatus;
 public:
     Order(int id, Customer& customer);
-
+    void addProduct(Product* product, int qty);
     int getOrderID() const;
     double getTotalAmount() const;
     const Customer& getCustomer() const;
